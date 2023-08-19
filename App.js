@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import "fastestsmallesttextencoderdecoder";
+import { createInstance } from "@featurevisor/sdk";
+import { FeaturevisorProvider } from "@featurevisor/react";
+
+import Main from "./Main";
+
+// See https://github.com/featurevisor/featurevisor-example-cloudflare
+const DATAFILE_URL =
+  "https://featurevisor-example-cloudflare.pages.dev/production/datafile-tag-all.json";
+
+const f = createInstance({
+  datafileUrl: DATAFILE_URL,
+  onReady: () => console.log("Featurevisor SDK is ready!"),
+
+  refreshInterval: 60 * 5, // 5 minutes
+  onRefresh: () => console.log("Featurevisor SDK has refreshed!"),
+  onUpdate: () =>
+    console.log(
+      "Featurevisor SDK has refreshed, and latest datafile has new changes!"
+    ),
+});
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <FeaturevisorProvider sdk={f}>
+      <Main />
+    </FeaturevisorProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
