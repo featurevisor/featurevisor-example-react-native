@@ -8,7 +8,7 @@ export default function Feature() {
   const isEnabled = useFlag(featureKey, context);
 
   return (
-    <Text>
+    <Text style={{ color: "#fff" }}>
       Feature {featureKey} is {isEnabled ? "enabled!" : "not enabled."}
     </Text>
   );

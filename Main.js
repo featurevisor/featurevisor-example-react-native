@@ -7,7 +7,7 @@ import Feature from "./Feature";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#0D1117",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -18,12 +18,16 @@ export default function Main() {
 
   return (
     <View style={styles.container}>
-      <Text>Open up Main.js to start working on your app!</Text>
+      <Text style={{ color: "#fff" }}>
+        Open up Main.js to start working on your app!
+      </Text>
 
       {isReady ? (
         <Feature />
       ) : (
-        <Text>Featurevisor SDK is getting ready...</Text>
+        <Text style={{ color: "#fff" }}>
+          Featurevisor SDK is getting ready...
+        </Text>
       )}
 
       <StatusBar style="auto" />
