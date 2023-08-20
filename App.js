@@ -22,7 +22,7 @@ const f = createInstance({
 
 export default function App() {
   return (
-    <FeaturevisorProvider sdk={f}>
+    <FeaturevisorProvider instance={f}>
       <Main />
     </FeaturevisorProvider>
   );
