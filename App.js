@@ -6,18 +6,15 @@ import Main from "./Main";
 
 // See https://github.com/featurevisor/featurevisor-example-cloudflare
 const DATAFILE_URL =
-  "https://featurevisor-example-cloudflare.pages.dev/production/datafile-tag-all.json";
+  "https://featurevisor-example-cloudflare.pages.dev/production/featurevisor-tag-all.json";
+
+const datafileContent = await fetch(DATAFILE_URL).then((response) =>
+  response.json()
+);
 
 const f = createInstance({
-  datafileUrl: DATAFILE_URL,
-  onReady: () => console.log("Featurevisor SDK is ready!"),
-
-  refreshInterval: 60 * 5, // 5 minutes
-  onRefresh: () => console.log("Featurevisor SDK has refreshed!"),
-  onUpdate: () =>
-    console.log(
-      "Featurevisor SDK has refreshed, and latest datafile has new changes!"
-    ),
+  datafile: datafileContent,
+  context: { userId: "123" },
 });
 
 export default function App() {

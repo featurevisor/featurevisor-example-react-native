@@ -3,9 +3,8 @@ import { useFlag } from "@featurevisor/react";
 
 export default function Feature() {
   const featureKey = "my_feature";
-  const context = { userId: "123" };
 
-  const isEnabled = useFlag(featureKey, context);
+  const isEnabled = useFlag(featureKey);
 
   return (
     <Text style={{ color: "#fff" }}>

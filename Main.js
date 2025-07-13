@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import { Text, View, StyleSheet } from "react-native";
-import { useStatus } from "@featurevisor/react";
 
 import Feature from "./Feature";
 
@@ -22,13 +21,7 @@ export default function Main() {
         Open up Main.js to start working on your app!
       </Text>
 
-      {isReady ? (
-        <Feature />
-      ) : (
-        <Text style={{ color: "#fff" }}>
-          Featurevisor SDK is getting ready...
-        </Text>
-      )}
+      <Feature />
 
       <StatusBar style="auto" />
     </View>
