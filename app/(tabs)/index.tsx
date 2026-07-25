@@ -23,7 +23,7 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Feature evaluation:</ThemedText>
         <ThemedText>
-          Feature "baz" is {isFeatureEnabled ? "enabled" : "disabled"}.
+          Feature baz is {isFeatureEnabled ? "enabled" : "disabled"}.
         </ThemedText>
       </ThemedView>
       <ThemedView style={styles.titleContainer}>
