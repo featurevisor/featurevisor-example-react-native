@@ -39,8 +39,8 @@ export default function RootLayout() {
         return response.json();
       })
       .then((datafileContent) => {
-        if (active) {
-          f.setDatafile(datafileContent, true);
+        if (active && !f.setDatafile(datafileContent, true)) {
+          throw new Error("Datafile was rejected");
         }
       })
       .catch((error) => {
